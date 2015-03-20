@@ -33,7 +33,7 @@ TO BUILD
 RECENT CHANGE LOG
 
 05 Jan 2010
-o Fixed Iterator GetFirst() - Previous fix was not incomplete
+o Fixed Iterator GetFirst() - Previous fix was not complete
 
 03 Dec 2009
 o Added Iteartor GetBounds()
