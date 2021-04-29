@@ -44,6 +44,19 @@ bool MySearchCallback(int id, void* arg)
   return true; // keep going
 }
 
+// Tests fix of failure to insert multiple large identical items (case #1).
+void TestMultipleIdenticalInsertions()
+{
+  RTree<int,int,2,double> tree;
+  Rect r(-118384209,-145976966,-2294624,7131876);
+  for (int i = 0; i < 20; i++)
+    tree.Insert(r.min,r.max,i);
+  if (tree.Count() != 20)
+  {
+    printf("TestMultipleIdenticalInsertions failed.\n");
+    exit(-1);
+  }
+}
 
 void main()
 {
@@ -85,6 +98,8 @@ void main()
     ++it;
     printf("it[%d] %d\n", itIndex++, value);
   }
+
+  TestMultipleIdenticalInsertions();
 
   getchar(); // Wait for keypress on exit so we can read console output
 
